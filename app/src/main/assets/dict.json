@@ -1,0 +1,926 @@
+[
+  {
+    "word": "furnish",
+    "explanation": "vt. 供应，提供；装备，布置"
+  },
+  {
+    "word": "establish",
+    "explanation": "vt. 建立；安置，使定居；证实"
+  },
+  {
+    "word": "aspect",
+    "explanation": "n. 样子，外表，面貌；方面"
+  },
+  {
+    "word": "lad",
+    "explanation": "n. 男孩，小伙子"
+  },
+  {
+    "word": "exterior",
+    "explanation": "a. 外部的\nn. 外部；外表"
+  },
+  {
+    "word": "elbow",
+    "explanation": "n. 肘；弯头\nv. 用肘挤"
+  },
+  {
+    "word": "discipline",
+    "explanation": "n. 纪律，规定；学科；训练"
+  },
+  {
+    "word": "thrill",
+    "explanation": "n. 令人激动的事\nvt. 使激动，使兴奋"
+  },
+  {
+    "word": "allegiance",
+    "explanation": "n. 拥护；忠诚"
+  },
+  {
+    "word": "motion",
+    "explanation": "n. 运动，动；提议\nvt. 向…示意"
+  },
+  {
+    "word": "substantial",
+    "explanation": "a. 实质的，真实的；坚固的，结实的；富裕的，可观的"
+  },
+  {
+    "word": "startle",
+    "explanation": "vt. 惊吓；使吃惊"
+  },
+  {
+    "word": "concede",
+    "explanation": "vt. （不情愿地）承认；让步，给予"
+  },
+  {
+    "word": "dictate",
+    "explanation": "vt. 口述；听写；命令；支配；决定"
+  },
+  {
+    "word": "lame",
+    "explanation": "a. 跛的；有缺陷的；站不住脚的"
+  },
+  {
+    "word": "exhaust",
+    "explanation": "vt. 使精疲力尽，耗尽；抽完\nn. 排气装置；废气"
+  },
+  {
+    "word": "stiff",
+    "explanation": "a. 激烈的；硬的，僵直的；拘谨的，呆板的；艰难的，费劲的"
+  },
+  {
+    "word": "pinch",
+    "explanation": "n. （一）撮，微量；捏，掐；短缺\nvt. 捏，掐"
+  },
+  {
+    "word": "remnant",
+    "explanation": "n. 残余物；零头布料；遗迹"
+  },
+  {
+    "word": "crisp",
+    "explanation": "a. 脆的，易碎的\nn. 炸薯片"
+  },
+  {
+    "word": "dealer",
+    "explanation": "n. 商人，贩子"
+  },
+  {
+    "word": "zeal",
+    "explanation": "n. 热情，热忱"
+  },
+  {
+    "word": "shear",
+    "explanation": "vt. 修剪"
+  },
+  {
+    "word": "propaganda",
+    "explanation": "n. 宣传"
+  },
+  {
+    "word": "cape",
+    "explanation": "n. 斗篷；披肩；海角"
+  },
+  {
+    "word": "upright",
+    "explanation": "a. 垂直的，直立的；正直的，诚实的\nad. 竖立着"
+  },
+  {
+    "word": "dilute",
+    "explanation": "vt. 冲淡，稀释\na. 冲淡的，稀释的"
+  },
+  {
+    "word": "browse",
+    "explanation": "vi. 浏览；吃草\nn. 浏览；吃草，放牧；嫩叶"
+  },
+  {
+    "word": "tentative",
+    "explanation": "a. 尝试的，试验性的；犹豫的"
+  },
+  {
+    "word": "seam",
+    "explanation": "n. 缝，接缝"
+  },
+  {
+    "word": "descendant",
+    "explanation": "n. 子孙，后代"
+  },
+  {
+    "word": "sting",
+    "explanation": "n./v. 叮，刺，刺痛"
+  },
+  {
+    "word": "brochure",
+    "explanation": "n. 小册子"
+  },
+  {
+    "word": "spin",
+    "explanation": "v. 旋转；杜撰，虚构，编造；纺纱，织网"
+  },
+  {
+    "word": "brutal",
+    "explanation": "a. 残忍的；严峻的，严酷的"
+  },
+  {
+    "word": "swan",
+    "explanation": "n. 天鹅"
+  },
+  {
+    "word": "rigorous",
+    "explanation": "a. 严密的；严格的，严厉的；严峻的"
+  },
+  {
+    "word": "wax",
+    "explanation": "n. 蜡\nvt. 打蜡"
+  },
+  {
+    "word": "slaughter",
+    "explanation": "n./vt. 屠杀；屠宰"
+  },
+  {
+    "word": "pit",
+    "explanation": "n. 坑，陷阱；煤矿，矿井；剧院的正厅后座"
+  },
+  {
+    "word": "decay",
+    "explanation": "n./vt. 腐朽，腐烂；衰减，衰退"
+  },
+  {
+    "word": "beware",
+    "explanation": "vi. 当心，谨防"
+  },
+  {
+    "word": "worship",
+    "explanation": "v. 崇拜，敬仰；做礼拜\nn. 崇拜，敬仰；礼拜，礼拜仪式"
+  },
+  {
+    "word": "valve",
+    "explanation": "n. 阀；电子管，真空管"
+  },
+  {
+    "word": "circular",
+    "explanation": "a. 圆形的，环形的；循环的\nn. 传单，通报"
+  },
+  {
+    "word": "revive",
+    "explanation": "v. 恢复；（使）复苏"
+  },
+  {
+    "word": "huddle",
+    "explanation": "v. 聚集在一起，挤作一团\nn. 挤在一起的人；一堆杂乱的东西"
+  },
+  {
+    "word": "cellar",
+    "explanation": "n. 地窖，地下室"
+  },
+  {
+    "word": "undertake",
+    "explanation": "vt. 承担，担任；保证；着手，从事"
+  },
+  {
+    "word": "instrumental",
+    "explanation": "a. 起作用的，有帮助的；乐器的"
+  },
+  {
+    "word": "converge",
+    "explanation": "vi. 会合；靠拢，趋近；聚集，集中"
+  },
+  {
+    "word": "siege",
+    "explanation": "n. 包围，围攻"
+  },
+  {
+    "word": "conduct",
+    "explanation": "n. 行为，品行；引导，实施\nvt. 引导，带领，管理；传导；指挥（乐队）"
+  },
+  {
+    "word": "lever",
+    "explanation": "n. 杆，杠杆"
+  },
+  {
+    "word": "blend",
+    "explanation": "n. 混合（物）\nv. （使）混合，（使）混杂"
+  },
+  {
+    "word": "ample",
+    "explanation": "a. 充分的；富裕的；宽敞的"
+  },
+  {
+    "word": "rash",
+    "explanation": "a. 鲁莽的，轻率的\nn. （短时间内出现的）一连串令人不快的事物；皮疹"
+  },
+  {
+    "word": "radical",
+    "explanation": "a. 重要的，根本的；激进的，极端的"
+  },
+  {
+    "word": "pillar",
+    "explanation": "n. 台柱，栋梁"
+  },
+  {
+    "word": "grip",
+    "explanation": "n./v. 紧握，抓紧"
+  },
+  {
+    "word": "antenna",
+    "explanation": "n. 天线"
+  },
+  {
+    "word": "sip",
+    "explanation": "v. 抿，呷\nn. 小口喝，一小口的量"
+  },
+  {
+    "word": "devise",
+    "explanation": "vt. 设计，想出，发明"
+  },
+  {
+    "word": "bold",
+    "explanation": "a. 大胆的，勇敢的；冒失的，冒昧的；粗体的"
+  },
+  {
+    "word": "stadium",
+    "explanation": "n. 体育场"
+  },
+  {
+    "word": "diffuse",
+    "explanation": "vi. 扩散\nvt. 传播，散布；使分散；宣泄（不良情绪）\na. （文章等）冗长的，漫无边际的；弥漫的"
+  },
+  {
+    "word": "negligible",
+    "explanation": "a. 可以忽略的，微不足道的"
+  },
+  {
+    "word": "critical",
+    "explanation": "a. 批评的，评论的；危急的，紧要的；挑剔的；临界的"
+  },
+  {
+    "word": "excursion",
+    "explanation": "n. 短途旅行，浏览"
+  },
+  {
+    "word": "cosy/cozy",
+    "explanation": "a. 温暖而舒适的"
+  },
+  {
+    "word": "peep",
+    "explanation": "vi. 偷看"
+  },
+  {
+    "word": "conductor",
+    "explanation": "n. 领队，（乐队）指挥；售票员；导体"
+  },
+  {
+    "word": "isle",
+    "explanation": "n. 小岛"
+  },
+  {
+    "word": "intrigue",
+    "explanation": "vi. 密谋，施诡计\nvt. 引起极大兴趣，迷住\nn. 阴谋，诡计"
+  },
+  {
+    "word": "stoop",
+    "explanation": "vi. 弯腰，俯身\nn. 弯腰，曲背"
+  },
+  {
+    "word": "inertia",
+    "explanation": "n. 惯性；惰性"
+  },
+  {
+    "word": "luggage",
+    "explanation": "n. 行李"
+  },
+  {
+    "word": "plausible",
+    "explanation": "a. 似乎合理的，似乎可信的"
+  },
+  {
+    "word": "nucleus",
+    "explanation": "n. 核，原子核；核心"
+  },
+  {
+    "word": "crust",
+    "explanation": "n. 外皮，壳；地壳"
+  },
+  {
+    "word": "lick",
+    "explanation": "vt. 舔\nn. 舔"
+  },
+  {
+    "word": "lest",
+    "explanation": "conj. 唯恐，免得"
+  },
+  {
+    "word": "confine",
+    "explanation": "vt. 限制，局限于；管制，紧闭"
+  },
+  {
+    "word": "provision",
+    "explanation": "n. 供应；准备；条款，规定；给养，口粮"
+  },
+  {
+    "word": "supplement",
+    "explanation": "n. 补充（物）；增刊\nvt. 增补，补充"
+  },
+  {
+    "word": "propel",
+    "explanation": "vt. 推进，推动；激励，驱使"
+  },
+  {
+    "word": "appal(l)",
+    "explanation": "vt. 使惊骇，使恐怖"
+  },
+  {
+    "word": "dormitory",
+    "explanation": "n. （集体）宿舍"
+  },
+  {
+    "word": "spade",
+    "explanation": "n. 铁锹，铲子"
+  },
+  {
+    "word": "vocal",
+    "explanation": "a. 嗓音的，发声的；直言不讳的\nn. 声乐节目"
+  },
+  {
+    "word": "arch",
+    "explanation": "n. 拱门；拱形结构；桥拱洞\nvt. 拱起，使变成弓形"
+  },
+  {
+    "word": "compound",
+    "explanation": "n. 混合物，化合物\na. 混合的，复合的，化合的"
+  },
+  {
+    "word": "gown",
+    "explanation": "n. 女式礼服；罩衣；长袍"
+  },
+  {
+    "word": "locomotive",
+    "explanation": "a. 运动的，移动的，运载的\nn. 机车，火车头"
+  },
+  {
+    "word": "petrol",
+    "explanation": "n. 汽油"
+  },
+  {
+    "word": "seal",
+    "explanation": "n. 海豹；图章；封条\nvt. 密封"
+  },
+  {
+    "word": "specimen",
+    "explanation": "n. 标本，样本"
+  },
+  {
+    "word": "utter",
+    "explanation": "vt. 说，发出（声音）\na. 彻底的，完全的"
+  },
+  {
+    "word": "tomb",
+    "explanation": "n. 坟"
+  },
+  {
+    "word": "keen",
+    "explanation": "a. 热心的，渴望的；敏锐的，头脑敏捷的；锋利的"
+  },
+  {
+    "word": "straightforward",
+    "explanation": "a. 简单的，易懂的；正直的，坦率的\nad. 坦率地"
+  },
+  {
+    "word": "stall",
+    "explanation": "n. 货摊；畜栏\nv. （使）停转，（使）停止"
+  },
+  {
+    "word": "oar",
+    "explanation": "n. 桨橹"
+  },
+  {
+    "word": "verge",
+    "explanation": "n. 边缘\nv. 接近，濒临"
+  },
+  {
+    "word": "monarch",
+    "explanation": "n. 君主，帝王"
+  },
+  {
+    "word": "veteran",
+    "explanation": "a. 经验丰富的\nn. 老手；老兵"
+  },
+  {
+    "word": "splash",
+    "explanation": "vt. 溅湿，泼\nn. 溅，飞溅声；引人注目的事物"
+  },
+  {
+    "word": "deteriorate",
+    "explanation": "vi. 恶化，变坏"
+  },
+  {
+    "word": "confer",
+    "explanation": "vi. 商谈\nvt. 授予，赋予"
+  },
+  {
+    "word": "limp",
+    "explanation": "a. 柔软的，易曲的，无力的\nn./vi. 蹒跚，跛行"
+  },
+  {
+    "word": "mischief",
+    "explanation": "n. 损害，伤害，危害；恶作剧，捣蛋，胡闹"
+  },
+  {
+    "word": "bosom",
+    "explanation": "n. （心）胸"
+  },
+  {
+    "word": "reptile",
+    "explanation": "n. 爬行动物"
+  },
+  {
+    "word": "heave",
+    "explanation": "vt. （用力）举起，提起；扔（重物）\nn. 举起；升降"
+  },
+  {
+    "word": "pope",
+    "explanation": "n. （天主教）教皇，罗马主教"
+  },
+  {
+    "word": "reclaim",
+    "explanation": "vt. 要求归还，收回；开垦"
+  },
+  {
+    "word": "sober",
+    "explanation": "a. 清醒的，冷静的；适度的；严肃的"
+  },
+  {
+    "word": "indulge",
+    "explanation": "vt. 沉溺，纵容自己，肆意从事；允许（某人）延期付款"
+  },
+  {
+    "word": "embryo",
+    "explanation": "n. 胚胎；事物的萌芽期"
+  },
+  {
+    "word": "herald",
+    "explanation": "n. 预告，先兆；传令官\nvt. 预示…的来临"
+  },
+  {
+    "word": "scorn",
+    "explanation": "n./vt. 轻蔑，藐视"
+  },
+  {
+    "word": "posture",
+    "explanation": "n. 姿势，体态；看法，态度\nvi. 摆出（不自然的）姿势，装模作样"
+  },
+  {
+    "word": "relate",
+    "explanation": "vt. 叙述，讲述；使联系"
+  },
+  {
+    "word": "maneuver/manoeuvre",
+    "explanation": "v. 演习；谨慎的运用技巧（使某物）移动；熟练而巧妙地引导某人（或某事物）"
+  },
+  {
+    "word": "mock",
+    "explanation": "v. 嘲笑，讥笑\na. 仿制的，假装的；模拟的，演习的\nn. 模拟考试"
+  },
+  {
+    "word": "linen",
+    "explanation": "n. 亚麻布，亚麻布制品"
+  },
+  {
+    "word": "plateau",
+    "explanation": "n. 高原；稳定器，停滞期"
+  },
+  {
+    "word": "abide",
+    "explanation": "vi. 坚持，遵守；忍受；居住；停留"
+  },
+  {
+    "word": "dome",
+    "explanation": "n. 圆屋顶，拱顶"
+  },
+  {
+    "word": "patron",
+    "explanation": "n. 赞助人，保护人"
+  },
+  {
+    "word": "scheme",
+    "explanation": "n. 计划，方案；阴谋；配置，方案\nv. 计划，策划；密谋"
+  },
+  {
+    "word": "thermal",
+    "explanation": "a. 热的；保暖的"
+  },
+  {
+    "word": "lumber",
+    "explanation": "n. 木材，木料"
+  },
+  {
+    "word": "majesty",
+    "explanation": "n. 陛下；雄伟，壮丽，庄严"
+  },
+  {
+    "word": "repertoire",
+    "explanation": "n. （剧团等）常备节目；全部节目"
+  },
+  {
+    "word": "obstruction",
+    "explanation": "n. （蓄意）阻碍；妨碍；障碍物"
+  },
+  {
+    "word": "propose",
+    "explanation": "vt. 提议；提名，推荐\nvi. （向某人）求婚"
+  },
+  {
+    "word": "nominate",
+    "explanation": "vt. 提名；任命"
+  },
+  {
+    "word": "subscribe",
+    "explanation": "vi. 订阅，预订；赞成"
+  },
+  {
+    "word": "carbohydrate",
+    "explanation": "n. 碳水化合物"
+  },
+  {
+    "word": "overhaul",
+    "explanation": "n. 彻底检修；改革\nvt. 彻底检修；赶上，超过（赛跑对手）"
+  },
+  {
+    "word": "discourse",
+    "explanation": "n. 演讲，谈话，论文\nvi. 演讲，谈话"
+  },
+  {
+    "word": "sturdy",
+    "explanation": "a. 强健的，结实的"
+  },
+  {
+    "word": "fuss",
+    "explanation": "n./vi. 忙乱，大惊小怪"
+  },
+  {
+    "word": "buffet",
+    "explanation": "n. 自助餐"
+  },
+  {
+    "word": "permeate",
+    "explanation": "vi. 扩散，弥漫；渗透，渗入"
+  },
+  {
+    "word": "steep",
+    "explanation": "a. 陡峭的，险峻的；突然的，急剧的（数量的上升或下降），大起大落的"
+  },
+  {
+    "word": "dam",
+    "explanation": "n. 水坝，水闸"
+  },
+  {
+    "word": "narrative",
+    "explanation": "a. 叙述的，有故事性的\nn. 叙述；记叙文"
+  },
+  {
+    "word": "vulgar",
+    "explanation": "a. 粗野的，下流的；庸俗的，粗俗的；通俗的"
+  },
+  {
+    "word": "cripple",
+    "explanation": "n. 跛子，残疾人\nvt. 使跛，使残疾"
+  },
+  {
+    "word": "snap",
+    "explanation": "vt. 给…拍快照\nvi. 咔嚓折断，啪地绷断；猛咬；猛然断裂；吧嗒一声（关上或打开）；厉声说话，怒声责骂"
+  },
+  {
+    "word": "fairy",
+    "explanation": "n. 小仙子，小精灵"
+  },
+  {
+    "word": "whatsoever",
+    "explanation": "ad. （用于否定句中加强语气）任何"
+  },
+  {
+    "word": "fancy",
+    "explanation": "n. 爱好，喜爱；想象，设想\nvt. 想象，幻想\na. 花式的；奇特的"
+  },
+  {
+    "word": "slender",
+    "explanation": "a. 修长的，苗条的；微小的，微薄的"
+  },
+  {
+    "word": "linger",
+    "explanation": "vi. 逗留，闲逛，徘徊；磨蹭，拖延"
+  },
+  {
+    "word": "rein",
+    "explanation": "n. 缰绳；控制"
+  },
+  {
+    "word": "exert",
+    "explanation": "vt. 尽（力）；施加（压力等）"
+  },
+  {
+    "word": "liberal",
+    "explanation": "a. 自由的，开明的；丰富的，富足的；慷慨的；通识（教育）的"
+  },
+  {
+    "word": "trumpet",
+    "explanation": "n. 喇叭，小号\nv. 吹嘘，鼓吹"
+  },
+  {
+    "word": "heir",
+    "explanation": "n. 继承人"
+  },
+  {
+    "word": "intervene",
+    "explanation": "vi. 插手，干预，调停，介入"
+  },
+  {
+    "word": "vacuum",
+    "explanation": "n. 真空；真空吸尘器\nv. 收集"
+  },
+  {
+    "word": "speculate",
+    "explanation": "v. 预测，推断；思索；投机"
+  },
+  {
+    "word": "persecute",
+    "explanation": "vt. 迫害"
+  },
+  {
+    "word": "slice",
+    "explanation": "n. 薄片，切片；一份，部分"
+  },
+  {
+    "word": "canal",
+    "explanation": "n. 运河；沟渠"
+  },
+  {
+    "word": "intact",
+    "explanation": "a. 完整无缺的，未经触动的"
+  },
+  {
+    "word": "lean",
+    "explanation": "vi. 倾斜；屈身；倚靠；依赖\na. 瘦的，无脂肪的"
+  },
+  {
+    "word": "clutch",
+    "explanation": "v. 抓住，掌握\nn. 离合器"
+  },
+  {
+    "word": "temperament",
+    "explanation": "n. 性情；气质"
+  },
+  {
+    "word": "curl",
+    "explanation": "v. （使）卷曲；蜷缩\nn. 卷发；卷曲状；卷曲物"
+  },
+  {
+    "word": "pact",
+    "explanation": "n. 协定，条约，公约"
+  },
+  {
+    "word": "wander",
+    "explanation": "vi. 漫步，徘徊；迷路，迷失方向；离题"
+  },
+  {
+    "word": "compartment",
+    "explanation": "n. （客车车厢内的）隔间；分隔的空间"
+  },
+  {
+    "word": "liner",
+    "explanation": "n. 班机，班轮"
+  },
+  {
+    "word": "spectrum",
+    "explanation": "n. 光谱；频谱；范围，幅度"
+  },
+  {
+    "word": "bail",
+    "explanation": "n. 保释\nvt. 保释；帮助（某人）脱离困境"
+  },
+  {
+    "word": "embassy",
+    "explanation": "n. 大使馆"
+  },
+  {
+    "word": "distill",
+    "explanation": "vt. 蒸馏；用蒸馏法提取；吸取，提炼"
+  },
+  {
+    "word": "harsh",
+    "explanation": "a. 严厉的，刻薄的；严酷的，恶劣的；粗糙的；刺耳的，刺目的"
+  },
+  {
+    "word": "norm",
+    "explanation": "n. 规范；准则"
+  },
+  {
+    "word": "psychiatry",
+    "explanation": "n. 精神病学；精神病治疗法"
+  },
+  {
+    "word": "bound",
+    "explanation": "a. 注定的；受约束的；有义务的；开往…的\nn./vi. 跳跃"
+  },
+  {
+    "word": "withdraw",
+    "explanation": "vt. 收回，撤销；退出；取（钱）"
+  },
+  {
+    "word": "blunder",
+    "explanation": "vi. 踉踉跄跄地走；乱闯；（因无知、粗心等而）犯错\nn. （愚蠢或粗心的）错误"
+  },
+  {
+    "word": "incentive",
+    "explanation": "n. 刺激；鼓励；动机"
+  },
+  {
+    "word": "mo(u)ld",
+    "explanation": "n. 模子，铸型\nvt. 浇铸；塑造，形成"
+  },
+  {
+    "word": "grind",
+    "explanation": "vt. 磨（碎），碾（碎）"
+  },
+  {
+    "word": "vessel",
+    "explanation": "n. 容器，器皿；船，舰；血管；管"
+  },
+  {
+    "word": "detain",
+    "explanation": "vt. 扣留，拘留；耽搁"
+  },
+  {
+    "word": "setback",
+    "explanation": "n. 挫折；倒退；失败"
+  },
+  {
+    "word": "hormone",
+    "explanation": "n. 激素，荷尔蒙"
+  },
+  {
+    "word": "petroleum",
+    "explanation": "n. 石油"
+  },
+  {
+    "word": "revolt",
+    "explanation": "n./vi. 反抗，起义"
+  },
+  {
+    "word": "disclose",
+    "explanation": "vt. 揭示；泄露"
+  },
+  {
+    "word": "hawk",
+    "explanation": "n. 鹰，隼"
+  },
+  {
+    "word": "amid",
+    "explanation": "prep. 在…中间，被…围绕"
+  },
+  {
+    "word": "expedition",
+    "explanation": "n. 远征（队），探险（队）"
+  },
+  {
+    "word": "sparkle",
+    "explanation": "v. 发火花，闪耀"
+  },
+  {
+    "word": "celebrity",
+    "explanation": "n. 名望，名声；名人"
+  },
+  {
+    "word": "yawn",
+    "explanation": "vi. 打哈欠\nn. 哈欠"
+  },
+  {
+    "word": "sketch",
+    "explanation": "n. 草图；梗概，大意；素描，速写\nv. 概述，简述；勾画；素描"
+  },
+  {
+    "word": "timber",
+    "explanation": "n. 木材，木料；树林"
+  },
+  {
+    "word": "blaze",
+    "explanation": "n. 火焰，火光；闪光，光辉\nvi. 燃烧，冒火焰；照耀，发光"
+  },
+  {
+    "word": "conservation",
+    "explanation": "n. 保存；保护；保守；守恒"
+  },
+  {
+    "word": "intimate",
+    "explanation": "a. 亲密的；密切的；幽静舒适的"
+  },
+  {
+    "word": "collective",
+    "explanation": "n. 集体，团体\na. 集体的，共同的"
+  },
+  {
+    "word": "cliff",
+    "explanation": "n. 悬崖，峭壁"
+  },
+  {
+    "word": "sore",
+    "explanation": "a. 疼痛的；痛心的\nn. 痛处，疮口"
+  },
+  {
+    "word": "portfolio",
+    "explanation": "n. 公文包；文件夹；作品集；投资组合"
+  },
+  {
+    "word": "deposit",
+    "explanation": "vt. （使）沉淀；付（押金）；存放；储蓄\nn. 存款；押金；沉淀物"
+  },
+  {
+    "word": "displacement",
+    "explanation": "n. 转移；取代"
+  },
+  {
+    "word": "obscure",
+    "explanation": "vt. 使暗，使不明显\na. 暗的；朦胧的；模糊的；灰色的"
+  },
+  {
+    "word": "hurl",
+    "explanation": "vt. 猛投，猛冲；大声叫骂"
+  },
+  {
+    "word": "shatter",
+    "explanation": "vt. 使粉碎；使散开；使破灭；使震惊\nn. 碎片；粉碎"
+  },
+  {
+    "word": "dispose",
+    "explanation": "v. 处理，处置；布置，安排"
+  },
+  {
+    "word": "hemisphere",
+    "explanation": "n. 半球"
+  },
+  {
+    "word": "deem",
+    "explanation": "vt. 认为，相信"
+  },
+  {
+    "word": "twist",
+    "explanation": "vt. 歪曲，曲解\nvi. 捻，搓，拧\nn. 搓，拧；新手法，窍门"
+  },
+  {
+    "word": "constitution",
+    "explanation": "n. 构成，成分；体格，体质；宪法"
+  },
+  {
+    "word": "reservoir",
+    "explanation": "n. 水库，蓄水池"
+  },
+  {
+    "word": "absorb",
+    "explanation": "vt. 吸收；吸引，使专心；承担，忍受；理解，掌握"
+  },
+  {
+    "word": "shutter",
+    "explanation": "n. 百叶窗；（照相机）快门"
+  },
+  {
+    "word": "retention",
+    "explanation": "n. 保留；保持"
+  },
+  {
+    "word": "radiant",
+    "explanation": "a. 容光焕发的；光芒四射的；辐射的"
+  },
+  {
+    "word": "briefcase",
+    "explanation": "n. 公文包，公事包"
+  },
+  {
+    "word": "lavatory",
+    "explanation": "n. 厕所"
+  },
+  {
+    "word": "resemble",
+    "explanation": "vt. 像，类似"
+  },
+  {
+    "word": "moist",
+    "explanation": "a. 潮湿的，湿润的"
+  }
+]

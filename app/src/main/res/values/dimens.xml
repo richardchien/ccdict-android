@@ -5,4 +5,5 @@
     <dimen name="app_bar_horizontal_margin">16dp</dimen>
     <dimen name="app_bar_vertical_margin">16dp</dimen>
     <dimen name="app_bar_height">56dp</dimen>
+    <dimen name="list_item_padding">12dp</dimen>
 </resources>

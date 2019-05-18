@@ -41,10 +41,7 @@ public class HomeFragment extends Fragment {
     }
 
     public static HomeFragment newInstance() {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
+        return new HomeFragment();
     }
 
     @Override
@@ -55,11 +52,11 @@ public class HomeFragment extends Fragment {
         return v;
     }
 
-    private void initView(View v) {
-        mSwipeRefreshLayout = v.findViewById(R.id.srl_swipe_refresh);
+    private void initView(View view) {
+        mSwipeRefreshLayout = view.findViewById(R.id.srl_swipe_refresh);
         mSwipeRefreshLayout.setOnRefreshListener(this::onRefresh);
 
-        ListView articleListView = v.findViewById(R.id.lv_article_list);
+        ListView articleListView = view.findViewById(R.id.lv_article_list);
         mArticleListViewAdapter = new CommonAdapter<Article>(getContext(), mArticleList, R.layout.article_list_item) {
             @Override
             public void onPostBindViewHolder(ViewHolder viewHolder, Article article) {

@@ -12,7 +12,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
     public static SettingsFragment newInstance() {
         SettingsFragment fragment = new SettingsFragment();
-        Bundle args = new Bundle();
+        Bundle args = new Bundle(); // TODO
         fragment.setArguments(args);
         return fragment;
     }

@@ -9,9 +9,15 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import cn.edu.cczu.iot161g2.ccdict.events.SearchBarStateChangeEvent;
 import cn.edu.cczu.iot161g2.ccdict.fragments.AppBarSearchFragment;
 import cn.edu.cczu.iot161g2.ccdict.fragments.AppBarTitleFragment;
 import cn.edu.cczu.iot161g2.ccdict.fragments.HomeFragment;
+import cn.edu.cczu.iot161g2.ccdict.fragments.SearchHistoryFragment;
 import cn.edu.cczu.iot161g2.ccdict.fragments.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -63,4 +69,37 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSearchBarStateChange(SearchBarStateChangeEvent event) {
+        if (event.enabled) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fl_main_container, SearchHistoryFragment.newInstance())
+                    .addToBackStack(null)
+                    .commit();
+        } else {
+            getSupportFragmentManager()
+                    .popBackStack();
+        }
+    }
+
+//    @Override
+//    public void onBackPressed() {
+//        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+//
+//        }
+//    }
 }
