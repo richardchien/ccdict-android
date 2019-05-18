@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">电子词典</string>
+    <string name="app_name">CC词典</string>
     <string name="title_dict">词典</string>
     <string name="title_trans">翻译</string>
     <string name="title_wordbook">单词本</string>

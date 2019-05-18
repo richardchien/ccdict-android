@@ -1,4 +1,4 @@
-package cn.edu.cczu.iot161g2.finalproject.data;
+package cn.edu.cczu.iot161g2.ccdict.data;
 
 import android.annotation.SuppressLint;
 
@@ -12,9 +12,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import cn.edu.cczu.iot161g2.finalproject.App;
-import cn.edu.cczu.iot161g2.finalproject.beans.Article;
-import cn.edu.cczu.iot161g2.finalproject.utils.HttpUtils;
+import cn.edu.cczu.iot161g2.ccdict.App;
+import cn.edu.cczu.iot161g2.ccdict.beans.Article;
+import cn.edu.cczu.iot161g2.ccdict.utils.HttpUtils;
 
 public class ArticleRepository {
     private static final String API_URL_FORMAT_ARTICLE_LIST = "https://dict.youdao.com/infoline/web?client=web&startDate=%s";

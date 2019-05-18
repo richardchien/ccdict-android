@@ -1,4 +1,4 @@
-package cn.edu.cczu.iot161g2.finalproject.fragments;
+package cn.edu.cczu.iot161g2.ccdict.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import cn.edu.cczu.iot161g2.finalproject.R;
+import cn.edu.cczu.iot161g2.ccdict.R;
 
 public class AppBarTitleFragment extends Fragment {
     private static final String PARAM_TITLE = "title";

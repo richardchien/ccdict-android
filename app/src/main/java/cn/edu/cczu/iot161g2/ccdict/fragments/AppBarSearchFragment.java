@@ -1,4 +1,4 @@
-package cn.edu.cczu.iot161g2.finalproject.fragments;
+package cn.edu.cczu.iot161g2.ccdict.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import cn.edu.cczu.iot161g2.finalproject.R;
+import cn.edu.cczu.iot161g2.ccdict.R;
 
 public class AppBarSearchFragment extends Fragment {
     public AppBarSearchFragment() {

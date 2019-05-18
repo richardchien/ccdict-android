@@ -1,4 +1,4 @@
-package cn.edu.cczu.iot161g2.finalproject.fragments;
+package cn.edu.cczu.iot161g2.ccdict.fragments;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -21,9 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import cn.edu.cczu.iot161g2.finalproject.R;
-import cn.edu.cczu.iot161g2.finalproject.beans.Article;
-import cn.edu.cczu.iot161g2.finalproject.data.ArticleRepository;
+import cn.edu.cczu.iot161g2.ccdict.R;
+import cn.edu.cczu.iot161g2.ccdict.beans.Article;
+import cn.edu.cczu.iot161g2.ccdict.data.ArticleRepository;
 import im.r_c.android.commonadapter.CommonAdapter;
 import im.r_c.android.commonadapter.ViewHolder;
 import io.reactivex.Observable;

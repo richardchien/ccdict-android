@@ -1,10 +1,10 @@
-package cn.edu.cczu.iot161g2.finalproject.fragments;
+package cn.edu.cczu.iot161g2.ccdict.fragments;
 
 import android.os.Bundle;
 
 import androidx.preference.PreferenceFragmentCompat;
 
-import cn.edu.cczu.iot161g2.finalproject.R;
+import cn.edu.cczu.iot161g2.ccdict.R;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
     public SettingsFragment() {

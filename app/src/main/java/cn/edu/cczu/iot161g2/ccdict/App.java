@@ -1,4 +1,4 @@
-package cn.edu.cczu.iot161g2.finalproject;
+package cn.edu.cczu.iot161g2.ccdict;
 
 import android.app.Application;
 

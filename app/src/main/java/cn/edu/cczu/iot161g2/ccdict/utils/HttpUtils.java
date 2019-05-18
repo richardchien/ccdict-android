@@ -1,4 +1,4 @@
-package cn.edu.cczu.iot161g2.finalproject.utils;
+package cn.edu.cczu.iot161g2.ccdict.utils;
 
 import androidx.annotation.NonNull;
 

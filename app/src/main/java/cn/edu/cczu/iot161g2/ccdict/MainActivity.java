@@ -1,4 +1,4 @@
-package cn.edu.cczu.iot161g2.finalproject;
+package cn.edu.cczu.iot161g2.ccdict;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import cn.edu.cczu.iot161g2.finalproject.fragments.AppBarSearchFragment;
-import cn.edu.cczu.iot161g2.finalproject.fragments.AppBarTitleFragment;
-import cn.edu.cczu.iot161g2.finalproject.fragments.HomeFragment;
-import cn.edu.cczu.iot161g2.finalproject.fragments.SettingsFragment;
+import cn.edu.cczu.iot161g2.ccdict.fragments.AppBarSearchFragment;
+import cn.edu.cczu.iot161g2.ccdict.fragments.AppBarTitleFragment;
+import cn.edu.cczu.iot161g2.ccdict.fragments.HomeFragment;
+import cn.edu.cczu.iot161g2.ccdict.fragments.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
