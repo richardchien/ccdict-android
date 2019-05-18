@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Preference
+        app:key="import-dict"
+        app:summary="从 SD 卡导入词典"
+        app:title="导入词典" />
+    <Preference
+        app:key="export-dict"
+        app:summary="导出词典到 SD 卡"
+        app:title="导出词典" />
+</PreferenceScreen>

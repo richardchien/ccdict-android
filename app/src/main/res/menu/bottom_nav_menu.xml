@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_dict"
+        android:icon="@drawable/ic_dict"
+        android:title="@string/title_dict" />
+
+    <item
+        android:id="@+id/navigation_trans"
+        android:icon="@drawable/ic_translate"
+        android:title="@string/title_trans" />
+
+    <item
+        android:id="@+id/navigation_workbook"
+        android:icon="@drawable/ic_wordbook"
+        android:title="@string/title_wordbook" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/title_settings" />
+
+</menu>

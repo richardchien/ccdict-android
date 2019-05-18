@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mancj.materialsearchbar.MaterialSearchBar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MaterialSearchBarLight"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/app_bar_vertical_margin"
+    android:layout_marginBottom="@dimen/app_bar_vertical_margin"
+    app:mt_hint="@string/hint_enter_word_here"
+    app:mt_maxSuggestionsCount="10"
+    app:mt_placeholder="@string/hint_enter_word_here"
+    app:mt_placeholderColor="@color/searchBarHintColor" />
