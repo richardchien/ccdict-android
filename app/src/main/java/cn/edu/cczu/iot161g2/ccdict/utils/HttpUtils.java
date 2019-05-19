@@ -23,6 +23,7 @@ public class HttpUtils {
             connection.setRequestMethod("GET");
             connection.setConnectTimeout(DEFAULT_CONNECTION_TIME_OUT);
             connection.setReadTimeout(DEFAULT_READ_TIME_OUT);
+            connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36");
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuilder stringBuilder = new StringBuilder();
             String line;

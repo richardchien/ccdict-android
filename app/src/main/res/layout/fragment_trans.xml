@@ -28,7 +28,8 @@
             android:inputType="textMultiLine"
             android:padding="@dimen/trans_text_padding"
             android:scrollbars="vertical"
-            android:text="@{fromText}"
+            android:text="@={fromText}"
+            android:textSize="@dimen/trans_text_size"
             tools:ignore="Autofill" />
 
         <LinearLayout
@@ -68,7 +69,9 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/trans_text_padding"
                 android:text="@{toText}"
-                android:textColor="@color/textPrimary" />
+                android:textColor="@color/textPrimary"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/trans_text_size" />
         </ScrollView>
     </LinearLayout>
 </layout>

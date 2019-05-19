@@ -27,8 +27,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-import cn.edu.cczu.iot161g2.ccdict.activities.ArticleActivity;
 import cn.edu.cczu.iot161g2.ccdict.R;
+import cn.edu.cczu.iot161g2.ccdict.activities.ArticleActivity;
 import cn.edu.cczu.iot161g2.ccdict.beans.Article;
 import cn.edu.cczu.iot161g2.ccdict.beans.DictEntry;
 import cn.edu.cczu.iot161g2.ccdict.data.ArticleRepository;
