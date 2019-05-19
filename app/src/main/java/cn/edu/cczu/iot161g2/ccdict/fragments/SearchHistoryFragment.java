@@ -61,8 +61,8 @@ public class SearchHistoryFragment extends Fragment {
 
     @Override
     public void onStop() {
-        super.onStop();
         EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 
     private void initView(View view) {
@@ -89,11 +89,15 @@ public class SearchHistoryFragment extends Fragment {
                 .map(s -> DBox.of(HistoryEntry.class).findAll().orderByDesc("id").results().all())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(historyEntries -> {
-                    mHistoryEntryList.clear();
-                    mHistoryEntryList.addAll(historyEntries);
-                    notifyDataSetChanged();
-                });
+                .subscribe(
+                        historyEntries -> {
+                            mHistoryEntryList.clear();
+                            mHistoryEntryList.addAll(historyEntries);
+                            notifyDataSetChanged();
+                        },
+                        throwable -> {
+                        }
+                );
     }
 
     /**

@@ -1,5 +1,6 @@
 package cn.edu.cczu.iot161g2.ccdict;
 
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -90,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        super.onStop();
         EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -112,18 +113,23 @@ public class MainActivity extends AppCompatActivity {
     public void onSearchCompletedEvent(SearchCompletedEvent event) {
         Log.d(TAG, "onSearchCompletedEvent, keyword: " + event.keyword + ", results: " + event.results);
 
-        // 将关键词添加到搜索结果
+        // 将关键词添加到搜索历史
         Observable.just(event.keyword)
                 .doOnNext(kw -> {
-                    List<HistoryEntry> redundant = DBox.of(HistoryEntry.class)
-                            .find(new DBoxCondition().equalTo(COLUMN_NAME_KEYWORD, kw))
-                            .results().all();
-                    for (HistoryEntry entry : redundant) {
-                        DBox.of(HistoryEntry.class).remove(entry);
+                    try {
+                        List<HistoryEntry> redundant = DBox.of(HistoryEntry.class)
+                                .find(new DBoxCondition().equalTo(COLUMN_NAME_KEYWORD, kw))
+                                .results().all();
+                        for (HistoryEntry entry : redundant) {
+                            DBox.of(HistoryEntry.class).remove(entry);
+                        }
+                    } catch (SQLiteException ignored) {
                     }
                     DBox.of(HistoryEntry.class).save(new HistoryEntry(kw));
                 })
                 .subscribeOn(Schedulers.io())
                 .subscribe();
+
+
     }
 }
