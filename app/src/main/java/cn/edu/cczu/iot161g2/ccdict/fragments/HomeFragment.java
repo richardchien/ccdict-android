@@ -76,6 +76,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void onRefresh() {
+        mSwipeRefreshLayout.post(() -> mSwipeRefreshLayout.setRefreshing(true));
         loadArticleListFromInternet();
     }
 
@@ -86,7 +87,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadArticleListFromInternet() {
-        mSwipeRefreshLayout.post(() -> mSwipeRefreshLayout.setRefreshing(true));
         Observable<Article[]> observable = Observable.fromCallable(ArticleRepository::getArticlesFromInternet);
         subscribeArticles(observable);
     }

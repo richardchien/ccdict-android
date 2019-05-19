@@ -13,7 +13,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import cn.edu.cczu.iot161g2.ccdict.events.SearchBarStateChangeEvent;
+import cn.edu.cczu.iot161g2.ccdict.events.SearchStateChangedEvent;
 import cn.edu.cczu.iot161g2.ccdict.fragments.AppBarSearchFragment;
 import cn.edu.cczu.iot161g2.ccdict.fragments.AppBarTitleFragment;
 import cn.edu.cczu.iot161g2.ccdict.fragments.HomeFragment;
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.navigation_dict:
                 switchAppBarFragment(AppBarSearchFragment.newInstance());
-                switchMainFragment(HomeFragment.newInstance());
+                switchMainFragment(HomeFragment.newInstance()); // TODO: fragment 需要缓存（使用 tag）
                 return true;
             case R.id.navigation_trans:
                 switchAppBarFragment(AppBarTitleFragment.newInstance(getString(R.string.title_trans)));
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onSearchBarStateChange(SearchBarStateChangeEvent event) {
+    public void onSearchStateChanged(SearchStateChangedEvent event) {
         if (event.enabled) {
             getSupportFragmentManager()
                     .beginTransaction()

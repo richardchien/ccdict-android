@@ -2,9 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="horizontal"
     android:padding="@dimen/list_item_padding">
 
@@ -17,8 +15,10 @@
         android:textColor="@color/textPrimary" />
 
     <Button
+        android:id="@+id/btn_item_delete"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="22dp"
         android:layout_height="22dp"
-        android:background="@drawable/ic_close" />
+        android:background="@drawable/ic_close"
+        android:foreground="?attr/selectableItemBackgroundBorderless" />
 </LinearLayout>

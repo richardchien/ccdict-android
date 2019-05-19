@@ -13,16 +13,12 @@ import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import org.greenrobot.eventbus.EventBus;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import cn.edu.cczu.iot161g2.ccdict.R;
-import cn.edu.cczu.iot161g2.ccdict.events.SearchBarStateChangeEvent;
+import cn.edu.cczu.iot161g2.ccdict.events.SearchStateChangedEvent;
+import cn.edu.cczu.iot161g2.ccdict.events.SearchConfirmedEvent;
 
 public class AppBarSearchFragment extends Fragment implements MaterialSearchBar.OnSearchActionListener {
     private static final String TAG = "AppBarSearchFragment";
-
-    private MaterialSearchBar mSearchBar;
 
     public AppBarSearchFragment() {
     }
@@ -43,19 +39,21 @@ public class AppBarSearchFragment extends Fragment implements MaterialSearchBar.
     }
 
     private void initView(View view) {
-        mSearchBar = view.findViewById(R.id.msb_search_bar);
-        mSearchBar.setOnSearchActionListener(this);
+        MaterialSearchBar searchBar = view.findViewById(R.id.msb_search_bar);
+        searchBar.setOnSearchActionListener(this);
+        searchBar.setSuggestionsEnabled(false);
     }
 
     @Override
     public void onSearchStateChanged(boolean enabled) {
         Log.d(TAG, "onSearchStateChanged: " + enabled);
-        EventBus.getDefault().post(new SearchBarStateChangeEvent(enabled));
+        EventBus.getDefault().post(new SearchStateChangedEvent(enabled));
     }
 
     @Override
     public void onSearchConfirmed(CharSequence text) {
         Log.d(TAG, "onSearchConfirmed: " + text);
+        EventBus.getDefault().post(new SearchConfirmedEvent(text.toString()));
     }
 
     @Override
