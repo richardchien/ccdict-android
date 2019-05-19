@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -58,18 +58,11 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
-    private void replaceMainFragment(Fragment fragment, String tag, boolean addToBackStack) {
-        FragmentTransaction transaction = getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fl_main_container, fragment, tag);
-        if (addToBackStack) {
-            transaction.addToBackStack(null);
-        }
-        transaction.commit();
-    }
-
     private void replaceMainFragment(Fragment fragment, String tag) {
-        replaceMainFragment(fragment, tag, false);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fl_main_container, fragment, tag)
+                .commit();
     }
 
     private boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -111,10 +104,13 @@ public class MainActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onSearchStateChanged(SearchStateChangedEvent event) {
         if (event.enabled) {
-            replaceMainFragment(SearchHistoryFragment.newInstance(), null, true);
-        } else {
             getSupportFragmentManager()
-                    .popBackStack();
+                    .beginTransaction()
+                    .replace(R.id.fl_main_container, SearchHistoryFragment.newInstance())
+                    .addToBackStack(null)
+                    .commit();
+        } else {
+            getSupportFragmentManager().popBackStack();
         }
     }
 
@@ -140,9 +136,14 @@ public class MainActivity extends AppCompatActivity {
                 .subscribe();
 
         event.results.sort((a, b) -> a.getWord().length() - b.getWord().length());
-        replaceMainFragment(
-                SearchResultFragment.newInstance(event.keyword, event.results.size() > 0 ? event.results.get(0) : null),
-                null, true
-        );
+
+        getSupportFragmentManager()
+                .popBackStack("result", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fl_main_container,
+                        SearchResultFragment.newInstance(event.keyword, event.results.size() > 0 ? event.results.get(0) : null))
+                .addToBackStack("result")
+                .commit();
     }
 }
