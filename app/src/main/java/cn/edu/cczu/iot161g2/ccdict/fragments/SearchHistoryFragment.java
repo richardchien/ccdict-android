@@ -28,6 +28,9 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * 搜索历史页面.
+ */
 public class SearchHistoryFragment extends Fragment {
     private BaseAdapter mHistoryListViewAdapter;
     private List<HistoryEntry> mHistoryEntryList = new LinkedList<>();
@@ -72,6 +75,7 @@ public class SearchHistoryFragment extends Fragment {
             public void onPostBindViewHolder(ViewHolder viewHolder, HistoryEntry historyEntry) {
                 viewHolder.setViewText(R.id.tv_item_keyword, historyEntry.getKeyword());
                 viewHolder.getView(R.id.btn_item_delete).setOnClickListener(v -> {
+                    // 删除搜索历史项
                     HistoryEntry entry = mHistoryEntryList.remove(viewHolder.getPosition());
                     EventBus.getDefault().post(new RemoveEntryEvent(entry));
                     notifyDataSetChanged();
@@ -79,12 +83,12 @@ public class SearchHistoryFragment extends Fragment {
             }
         };
         historyListView.setAdapter(mHistoryListViewAdapter);
-        historyListView.setOnItemClickListener((parent, view1, position, id) -> {
-            EventBus.getDefault().post(new SearchEvent(mHistoryEntryList.get(position).getKeyword()));
-        });
+        // 设置点击搜索历史项可触发搜索
+        historyListView.setOnItemClickListener((parent, v, position, id) -> EventBus.getDefault().post(new SearchEvent(mHistoryEntryList.get(position).getKeyword())));
     }
 
     private void loadSearchHistory() {
+        // 从数据库加载搜索历史
         Observable.just("")
                 .map(s -> DBox.of(HistoryEntry.class).findAll().orderByDesc("id").results().all())
                 .subscribeOn(Schedulers.io())

@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import cn.edu.cczu.iot161g2.ccdict.R;
 
+/**
+ * 文章的详情页, 实际上是用浏览器打开一个 URL.
+ */
 public class ArticleActivity extends AppCompatActivity {
     private static final String TAG = "ArticleActivity";
 
@@ -32,12 +35,12 @@ public class ArticleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_article);
 
         WebView webView = findViewById(R.id.wv_article);
-        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setJavaScriptEnabled(true); // 需要启用 JavaScript 支持, 否则不能正常加载页面
 
         String url = getIntent().getStringExtra(PARAM_URL);
         Log.d(TAG, "url: " + url);
         if (url != null) {
-            webView.loadUrl(url);
+            webView.loadUrl(url); // 打开 URL
         }
     }
 }

@@ -8,6 +8,9 @@ import java.util.Objects;
 import im.r_c.android.dbox.annotation.Column;
 import im.r_c.android.dbox.annotation.Table;
 
+/**
+ * 搜索历史条目类.
+ */
 @Table("history")
 public class HistoryEntry implements Serializable {
     private long id;

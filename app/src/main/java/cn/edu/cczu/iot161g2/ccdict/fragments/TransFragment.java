@@ -21,6 +21,9 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * 翻译页面.
+ */
 public class TransFragment extends Fragment {
     private static final String TAG = "TransFragment";
 

@@ -34,6 +34,10 @@ import im.r_c.android.dbox.DBoxCondition;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * 主页面, 是应用界面主体, 包含标题栏 (ToolBar), Fragment 容器, 底部导航栏.
+ * 通过 EventBus 接收各类事件, 然后进行相应的 Fragment 切换.
+ */
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
@@ -70,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
+    /**
+     * 处理底部导航栏点击事件, 切换 ToolBar 和主屏幕区域的 Fragment.
+     */
     private boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.navigation_dict:
@@ -94,25 +101,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        EventBus.getDefault().register(this);
+        EventBus.getDefault().register(this); // 注册 EventBus 事件监听
     }
 
     @Override
     protected void onStop() {
-        EventBus.getDefault().unregister(this);
+        EventBus.getDefault().unregister(this); // 取消注册 EventBus 事件监听
         super.onStop();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onSearchStateChanged(SearchStateChangedEvent event) {
+        // 搜索栏状态发生变化时需要对应地显示和隐藏搜索历史页面
         if (event.enabled) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fl_main_container, SearchHistoryFragment.newInstance())
-                    .addToBackStack(null)
+                    .addToBackStack(null) // 压栈, 以便用户返回时重新回到 HomeFragment
                     .commit();
         } else {
-            getSupportFragmentManager().popBackStack();
+            getSupportFragmentManager().popBackStack(); // 弹出 SearchHistoryFragment
         }
     }
 
@@ -120,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     public void onSearchCompletedEvent(SearchCompletedEvent event) {
         Log.d(TAG, "onSearchCompletedEvent, keyword: " + event.keyword + ", results: " + event.results);
 
-        // 将关键词添加到搜索历史
+        // 将关键词添加到搜索历史数据表
         Observable.just(event.keyword)
                 .doOnNext(kw -> {
                     try {
@@ -138,10 +146,13 @@ public class MainActivity extends AppCompatActivity {
                 .subscribeOn(Schedulers.io())
                 .subscribe();
 
+        // 按单词长度排序, 后面会选择搜索到的最短单词作为搜索结果
         event.results.sort((a, b) -> a.getWord().length() - b.getWord().length());
 
+        // 弹出已有的 SearchResultFragment, 避免返回栈混乱
         getSupportFragmentManager()
                 .popBackStack("result", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fl_main_container,

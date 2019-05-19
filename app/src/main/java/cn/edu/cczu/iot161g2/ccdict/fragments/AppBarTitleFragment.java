@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment;
 
 import cn.edu.cczu.iot161g2.ccdict.R;
 
+/**
+ * 普通标题栏.
+ */
 public class AppBarTitleFragment extends Fragment {
     private static final String PARAM_TITLE = "title";
 

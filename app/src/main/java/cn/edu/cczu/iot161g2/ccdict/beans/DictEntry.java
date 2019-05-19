@@ -10,6 +10,9 @@ import java.util.Objects;
 import im.r_c.android.dbox.annotation.Column;
 import im.r_c.android.dbox.annotation.Table;
 
+/**
+ * 词典条目类.
+ */
 @Table("dictionary")
 public class DictEntry implements Serializable {
     private long id;

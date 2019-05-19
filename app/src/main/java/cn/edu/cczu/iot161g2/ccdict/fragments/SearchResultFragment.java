@@ -14,9 +14,12 @@ import cn.edu.cczu.iot161g2.ccdict.R;
 import cn.edu.cczu.iot161g2.ccdict.beans.DictEntry;
 import cn.edu.cczu.iot161g2.ccdict.databinding.FragmentSearchResultBinding;
 
+/**
+ * 搜索结果页面.
+ */
 public class SearchResultFragment extends Fragment {
     private static final String PARAM_KEYWORD = "keyword";
-    private static final String PARAM_DICT_ENTRY = "dict entry";
+    private static final String PARAM_DICT_ENTRY = "dict-entry";
 
     private String mKeyword;
     private DictEntry mEntry;

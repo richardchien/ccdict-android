@@ -36,6 +36,9 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * 设置页面.
+ */
 public class SettingsFragment extends PreferenceFragmentCompat {
     private static final String TAG = "SettingsFragment";
 
@@ -59,6 +62,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     }
 
     private void setupPreferenceCallbacks() {
+        // 设置设置项的点击事件回调
         Arrays.stream(new Preference[]{
                 findPreference(PREF_KEY_IMPORT_DICT),
                 findPreference(PREF_KEY_EXPORT_DICT),
@@ -80,6 +84,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == REQUEST_CODE_CHOOSE_IMPORT_FILE && resultCode == Activity.RESULT_OK) {
+            // 成功选择要导入的词典文件
             assert data != null;
             Uri uri = data.getData();
             importDict(uri);
@@ -94,6 +99,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         startActivityForResult(Intent.createChooser(chooseFile, "请选择要导入的词典文件"), REQUEST_CODE_CHOOSE_IMPORT_FILE);
     }
 
+    /**
+     * 导入词典.
+     */
     private void importDict(Uri uri) {
         DialogInterface.OnClickListener listener = (dialog, which) -> {
             if (which == DialogInterface.BUTTON_POSITIVE) {
@@ -130,6 +138,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         exportDict();
     }
 
+    /**
+     * 导出词典.
+     */
     private void exportDict() {
         File downloadDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         File dest = new File(downloadDir, "exported_dict.json");

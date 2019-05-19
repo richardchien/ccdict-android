@@ -8,6 +8,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * 提供 HTTP 请求相关方法.
+ */
 public class HttpUtils {
     private static final int DEFAULT_CONNECTION_TIME_OUT = 8000;
     private static final int DEFAULT_READ_TIME_OUT = 8000;

@@ -42,6 +42,9 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * 首页.
+ */
 public class HomeFragment extends Fragment {
     private static final String TAG = "HomeFragment";
 
@@ -91,7 +94,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        initDailyWord();
+        initDailyWord(); // 初始化每日单词组件
     }
 
     private void initDailyWord() {
@@ -99,24 +102,27 @@ public class HomeFragment extends Fragment {
             return;
         }
 
+        // 从词典中以日期为种子随机选择一个单词, 作为每日单词
         List<DictEntry> entries = DBox.of(DictEntry.class).findAll().results().all(); // this is bad
         Random random = new Random(Calendar.getInstance().get(Calendar.DAY_OF_YEAR));
         mDailyWord = entries.get(random.nextInt(entries.size()));
 
+        // 使用了 DataBinding 机制, 降低页面和控制层的耦合
         ArticleListHeaderBinding binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.article_list_header, mArticleListView, false);
         binding.setEntry(mDailyWord);
         mArticleListHeaderView = binding.getRoot();
-        mArticleListView.addHeaderView(mArticleListHeaderView);
+        mArticleListView.addHeaderView(mArticleListHeaderView); // 将每日单词组件添加到文章列表的头部
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        loadArticleListFromCache();
-        loadArticleListFromInternet();
+        loadArticleListFromCache(); // 先从缓存获取文章列表, 以避免长时间不显示内容
+        loadArticleListFromInternet(); // 再从网络获取最新文章
     }
 
     private void onRefresh() {
+        // 下拉刷新
         mSwipeRefreshLayout.post(() -> mSwipeRefreshLayout.setRefreshing(true));
         loadArticleListFromInternet();
     }
@@ -140,6 +146,7 @@ public class HomeFragment extends Fragment {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(articles -> {
+                    // 刷新文章成功, 更新列表
                     mArticleList.clear();
                     mArticleList.addAll(articles);
                     mArticleListViewAdapter.notifyDataSetChanged();

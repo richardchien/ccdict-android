@@ -15,6 +15,9 @@ import java.util.Arrays;
 import cn.edu.cczu.iot161g2.ccdict.beans.DictEntry;
 import im.r_c.android.dbox.DBox;
 
+/**
+ * 提供导入词典相关的方法.
+ */
 public class DictHelper {
     public static boolean hasDict() {
         try {

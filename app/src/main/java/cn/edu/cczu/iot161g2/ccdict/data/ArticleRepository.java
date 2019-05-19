@@ -16,6 +16,9 @@ import cn.edu.cczu.iot161g2.ccdict.App;
 import cn.edu.cczu.iot161g2.ccdict.beans.Article;
 import cn.edu.cczu.iot161g2.ccdict.utils.HttpUtils;
 
+/**
+ * 用于获取有道翻译首页的推荐文章. 封装了 HTTP 请求的逻辑, 以分离视图层和数据获取逻辑, 降低耦合.
+ */
 public class ArticleRepository {
     private static final String API_URL_FORMAT_ARTICLE_LIST = "https://dict.youdao.com/infoline/web?client=web&startDate=%s";
     private static final String CACHE_KEY_ARTICLE_LIST = "ARTICLE_LIST";

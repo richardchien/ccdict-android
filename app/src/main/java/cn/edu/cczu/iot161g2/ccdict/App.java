@@ -9,6 +9,10 @@ import im.r_c.android.fusioncache.FusionCache;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * 应用程序类.
+ * 用于进行全局的初始化, 包括建立缓存, 初始化数据库, 导入默认词典.
+ */
 public class App extends Application {
     private static FusionCache sFusionCache;
 

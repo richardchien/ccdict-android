@@ -25,6 +25,9 @@ import im.r_c.android.dbox.DBoxCondition;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * 顶部搜索栏.
+ */
 public class AppBarSearchFragment extends Fragment implements MaterialSearchBar.OnSearchActionListener {
     private static final String TAG = "AppBarSearchFragment";
 
@@ -54,7 +57,7 @@ public class AppBarSearchFragment extends Fragment implements MaterialSearchBar.
     private void initView(View view) {
         mSearchBar = view.findViewById(R.id.msb_search_bar);
         mSearchBar.setOnSearchActionListener(this);
-        mSearchBar.setSuggestionsEnabled(false);
+        mSearchBar.setSuggestionsEnabled(false); // 禁用搜索栏组件自带的搜索历史和搜索建议
     }
 
     @Override
@@ -88,10 +91,15 @@ public class AppBarSearchFragment extends Fragment implements MaterialSearchBar.
     public void onButtonClicked(int buttonCode) {
     }
 
+    /**
+     * 实现搜索逻辑.
+     * 由于有多种途径触发搜索, 为降低耦合这里使用 EventBus 订阅搜索事件, 而不是直接提供方法调用.
+     */
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onSearch(SearchEvent event) {
-        mSearchBar.disableSearch(); // 恢复搜索栏
+        mSearchBar.disableSearch(); // 恢复搜索栏到原始状态
 
+        // 搜索关键词, 然后通知相关组件搜索已完成, 事件中包含搜索结果
         Observable.just(event.keyword)
                 .map(kw -> DBox.of(DictEntry.class)
                         .find(new DBoxCondition()

@@ -11,6 +11,9 @@ import java.util.stream.Collectors;
 import cn.edu.cczu.iot161g2.ccdict.utils.HttpUtils;
 import cn.edu.cczu.iot161g2.ccdict.utils.UrlUtils;
 
+/**
+ * 用于获取谷歌翻译结果.
+ */
 public class TranslationRepository {
     private static final String API_URL_FORMAT = "http://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=auto&tl=%s&q=%s";
 
