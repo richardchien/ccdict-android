@@ -2,13 +2,14 @@ package cn.edu.cczu.iot161g2.ccdict.beans;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import im.r_c.android.dbox.annotation.Column;
 import im.r_c.android.dbox.annotation.Table;
 
 @Table("history")
-public class HistoryEntry {
+public class HistoryEntry implements Serializable {
     private long id;
 
     @Column(notNull = true)

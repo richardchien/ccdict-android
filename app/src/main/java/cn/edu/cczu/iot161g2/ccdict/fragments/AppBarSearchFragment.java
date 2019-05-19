@@ -12,13 +12,28 @@ import androidx.fragment.app.Fragment;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.Arrays;
 
 import cn.edu.cczu.iot161g2.ccdict.R;
+import cn.edu.cczu.iot161g2.ccdict.beans.DictEntry;
+import cn.edu.cczu.iot161g2.ccdict.events.SearchCompletedEvent;
+import cn.edu.cczu.iot161g2.ccdict.events.SearchEvent;
 import cn.edu.cczu.iot161g2.ccdict.events.SearchStateChangedEvent;
-import cn.edu.cczu.iot161g2.ccdict.events.SearchConfirmedEvent;
+import im.r_c.android.dbox.DBox;
+import im.r_c.android.dbox.DBoxCondition;
+import io.reactivex.Observable;
+import io.reactivex.schedulers.Schedulers;
 
 public class AppBarSearchFragment extends Fragment implements MaterialSearchBar.OnSearchActionListener {
     private static final String TAG = "AppBarSearchFragment";
+
+    private static final String COLUMN_NAME_WORD = "word";
+    private static final String COLUMN_NAME_EXPLANATION = "explanation";
+
+    private MaterialSearchBar mSearchBar;
 
     public AppBarSearchFragment() {
     }
@@ -39,9 +54,21 @@ public class AppBarSearchFragment extends Fragment implements MaterialSearchBar.
     }
 
     private void initView(View view) {
-        MaterialSearchBar searchBar = view.findViewById(R.id.msb_search_bar);
-        searchBar.setOnSearchActionListener(this);
-        searchBar.setSuggestionsEnabled(false);
+        mSearchBar = view.findViewById(R.id.msb_search_bar);
+        mSearchBar.setOnSearchActionListener(this);
+        mSearchBar.setSuggestionsEnabled(false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -53,11 +80,30 @@ public class AppBarSearchFragment extends Fragment implements MaterialSearchBar.
     @Override
     public void onSearchConfirmed(CharSequence text) {
         Log.d(TAG, "onSearchConfirmed: " + text);
-        EventBus.getDefault().post(new SearchConfirmedEvent(text.toString()));
+        EventBus.getDefault().post(new SearchEvent(text.toString()));
     }
 
     @Override
     public void onButtonClicked(int buttonCode) {
+    }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSearch(SearchEvent event) {
+        mSearchBar.disableSearch(); // 恢复搜索栏
+
+        Observable.just(event.keyword)
+//                .map(kw -> DBox.of(DictEntry.class)
+//                        .find(new DBoxCondition()
+//                                .contains(COLUMN_NAME_WORD, kw)
+//                                .or()
+//                                .contains(COLUMN_NAME_EXPLANATION, kw))
+//                        .results()
+//                        .all())
+                .map(kw -> Arrays.asList( // TODO: just test
+                        new DictEntry("test", "测试"),
+                        new DictEntry("hello", "你好")
+                ))
+                .subscribeOn(Schedulers.io())
+                .subscribe(dictEntries -> EventBus.getDefault().post(new SearchCompletedEvent(event.keyword, dictEntries)));
     }
 }

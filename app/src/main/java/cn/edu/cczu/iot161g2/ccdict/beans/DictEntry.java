@@ -2,6 +2,7 @@ package cn.edu.cczu.iot161g2.ccdict.beans;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -10,7 +11,7 @@ import im.r_c.android.dbox.annotation.Column;
 import im.r_c.android.dbox.annotation.Table;
 
 @Table("dictionary")
-public class DictEntry {
+public class DictEntry implements Serializable {
     private long id;
 
     @Column(notNull = true)
