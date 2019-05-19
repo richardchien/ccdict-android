@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
+import cn.edu.cczu.iot161g2.ccdict.activities.ArticleActivity;
 import cn.edu.cczu.iot161g2.ccdict.R;
 import cn.edu.cczu.iot161g2.ccdict.beans.Article;
 import cn.edu.cczu.iot161g2.ccdict.beans.DictEntry;
@@ -84,6 +85,9 @@ public class HomeFragment extends Fragment {
         mArticleListView.setOnItemClickListener((parent, v, position, id) -> {
             if (v == mArticleListHeaderView) {
                 EventBus.getDefault().post(new SearchCompletedEvent(mDailyWord.getWord(), Collections.singletonList(mDailyWord)));
+            } else {
+                Article article = (Article) mArticleListViewAdapter.getItem(position);
+                ArticleActivity.start(getContext(), article.getUrl());
             }
         });
 

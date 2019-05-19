@@ -33,7 +33,8 @@ public class ArticleRepository {
             try {
                 JSONObject object = new JSONObject(jsonString);
                 array = object.getJSONArray(dateString);
-            } catch (JSONException ignored) {
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
         if (array != null) {

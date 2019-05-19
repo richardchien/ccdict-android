@@ -1,4 +1,4 @@
-package cn.edu.cczu.iot161g2.ccdict;
+package cn.edu.cczu.iot161g2.ccdict.activities;
 
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
@@ -18,6 +18,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
+import cn.edu.cczu.iot161g2.ccdict.R;
 import cn.edu.cczu.iot161g2.ccdict.beans.HistoryEntry;
 import cn.edu.cczu.iot161g2.ccdict.events.SearchCompletedEvent;
 import cn.edu.cczu.iot161g2.ccdict.events.SearchStateChangedEvent;
@@ -27,6 +28,7 @@ import cn.edu.cczu.iot161g2.ccdict.fragments.HomeFragment;
 import cn.edu.cczu.iot161g2.ccdict.fragments.SearchHistoryFragment;
 import cn.edu.cczu.iot161g2.ccdict.fragments.SearchResultFragment;
 import cn.edu.cczu.iot161g2.ccdict.fragments.SettingsFragment;
+import cn.edu.cczu.iot161g2.ccdict.fragments.TransFragment;
 import im.r_c.android.dbox.DBox;
 import im.r_c.android.dbox.DBoxCondition;
 import io.reactivex.Observable;
@@ -59,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void replaceMainFragment(Fragment fragment, String tag) {
+        for (int i = 0; i < getSupportFragmentManager().getBackStackEntryCount() - 1; i++) {
+            getSupportFragmentManager().popBackStack();
+        }
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fl_main_container, fragment, tag)
@@ -77,10 +82,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.navigation_trans:
                 replaceAppBarFragment(AppBarTitleFragment.newInstance(getString(R.string.title_trans)));
+                replaceMainFragment(TransFragment.newInstance(), null);
                 return true;
-            case R.id.navigation_workbook:
-                replaceAppBarFragment(AppBarTitleFragment.newInstance(getString(R.string.title_wordbook)));
-                return true;
+//            case R.id.navigation_workbook:
+//                replaceAppBarFragment(AppBarTitleFragment.newInstance(getString(R.string.title_wordbook)));
+//                return true;
             case R.id.navigation_settings:
                 replaceAppBarFragment(AppBarTitleFragment.newInstance(getString(R.string.title_settings)));
                 replaceMainFragment(SettingsFragment.newInstance(), null);
@@ -128,7 +134,8 @@ public class MainActivity extends AppCompatActivity {
                         for (HistoryEntry entry : redundant) {
                             DBox.of(HistoryEntry.class).remove(entry);
                         }
-                    } catch (SQLiteException ignored) {
+                    } catch (SQLiteException e) {
+                        e.printStackTrace();
                     }
                     DBox.of(HistoryEntry.class).save(new HistoryEntry(kw));
                 })

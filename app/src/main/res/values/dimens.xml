@@ -11,4 +11,5 @@
     <dimen name="search_result_padding">24dp</dimen>
     <dimen name="daily_word_padding">20dp</dimen>
     <dimen name="daily_word_word_size">28sp</dimen>
+    <dimen name="trans_text_padding">12dp</dimen>
 </resources>

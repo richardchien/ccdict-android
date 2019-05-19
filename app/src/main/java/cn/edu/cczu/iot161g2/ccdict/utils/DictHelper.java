@@ -50,7 +50,8 @@ public class DictHelper {
                     .map(entry -> DBox.of(DictEntry.class).save(entry))
                     .filter(Boolean::booleanValue)
                     .count();
-        } catch (JsonParseException ignored) {
+        } catch (JsonParseException e) {
+            e.printStackTrace();
         }
         return -1;
     }
