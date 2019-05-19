@@ -1,10 +1,12 @@
 package cn.edu.cczu.iot161g2.ccdict.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -52,6 +54,8 @@ public class TransFragment extends Fragment {
         }
 
         setButtonsEnabled(false); // 禁用翻译按钮, 防止在网络请求时用户再次点击
+        clearEditTextFocus(); // 关闭输入框焦点
+
         Observable.just("")
                 .map(s -> TranslationRepository.getTranslation(fromText, toLang))
                 .subscribeOn(Schedulers.io())
@@ -70,5 +74,11 @@ public class TransFragment extends Fragment {
     private void setButtonsEnabled(boolean enabled) {
         mBinding.btnTran2en.setEnabled(enabled);
         mBinding.btnTrans2zh.setEnabled(enabled);
+    }
+
+    private void clearEditTextFocus() {
+        InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(mBinding.etFromText.getWindowToken(), 0);
+        mBinding.etFromText.clearFocus();
     }
 }

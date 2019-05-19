@@ -60,13 +60,13 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
-    private void replaceMainFragment(Fragment fragment, String tag) {
+    private void replaceMainFragment(Fragment fragment) {
         for (int i = 0; i < getSupportFragmentManager().getBackStackEntryCount() - 1; i++) {
             getSupportFragmentManager().popBackStack();
         }
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fl_main_container, fragment, tag)
+                .replace(R.id.fl_main_container, fragment)
                 .commit();
     }
 
@@ -74,22 +74,18 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.navigation_dict:
                 replaceAppBarFragment(AppBarSearchFragment.newInstance());
-                Fragment fragment = getSupportFragmentManager().findFragmentByTag("home");
-                if (fragment == null) {
-                    fragment = HomeFragment.newInstance();
-                }
-                replaceMainFragment(fragment, "home");
+                replaceMainFragment(HomeFragment.newInstance());
                 return true;
             case R.id.navigation_trans:
                 replaceAppBarFragment(AppBarTitleFragment.newInstance(getString(R.string.title_trans)));
-                replaceMainFragment(TransFragment.newInstance(), null);
+                replaceMainFragment(TransFragment.newInstance());
                 return true;
 //            case R.id.navigation_workbook:
 //                replaceAppBarFragment(AppBarTitleFragment.newInstance(getString(R.string.title_wordbook)));
 //                return true;
             case R.id.navigation_settings:
                 replaceAppBarFragment(AppBarTitleFragment.newInstance(getString(R.string.title_settings)));
-                replaceMainFragment(SettingsFragment.newInstance(), null);
+                replaceMainFragment(SettingsFragment.newInstance());
                 return true;
         }
         return false;
