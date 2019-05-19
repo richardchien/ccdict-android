@@ -5,4 +5,5 @@
     <string name="title_wordbook">单词本</string>
     <string name="title_settings">设置</string>
     <string name="hint_enter_word_here">在此输入单词</string>
+    <string name="title_daily_word">每日单词</string>
 </resources>

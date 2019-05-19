@@ -16,7 +16,7 @@ import java.util.Arrays;
 import cn.edu.cczu.iot161g2.ccdict.beans.DictEntry;
 import im.r_c.android.dbox.DBox;
 
-public class DictImporter {
+public class DictHelper {
     public static boolean hasDict() {
         try {
             return DBox.of(DictEntry.class).findAll().results().first() != null;

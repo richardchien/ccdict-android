@@ -12,30 +12,45 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.squareup.picasso.Picasso;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 import cn.edu.cczu.iot161g2.ccdict.R;
 import cn.edu.cczu.iot161g2.ccdict.beans.Article;
+import cn.edu.cczu.iot161g2.ccdict.beans.DictEntry;
 import cn.edu.cczu.iot161g2.ccdict.data.ArticleRepository;
+import cn.edu.cczu.iot161g2.ccdict.databinding.ArticleListHeaderBinding;
+import cn.edu.cczu.iot161g2.ccdict.events.SearchCompletedEvent;
+import cn.edu.cczu.iot161g2.ccdict.utils.DictHelper;
 import im.r_c.android.commonadapter.CommonAdapter;
 import im.r_c.android.commonadapter.ViewHolder;
+import im.r_c.android.dbox.DBox;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 public class HomeFragment extends Fragment {
+    private static final String TAG = "HomeFragment";
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    private ListView mArticleListView;
     private BaseAdapter mArticleListViewAdapter;
+    private View mArticleListHeaderView;
 
     private List<Article> mArticleList = new ArrayList<>();
+    private DictEntry mDailyWord;
 
     public HomeFragment() {
     }
@@ -56,7 +71,7 @@ public class HomeFragment extends Fragment {
         mSwipeRefreshLayout = view.findViewById(R.id.srl_swipe_refresh);
         mSwipeRefreshLayout.setOnRefreshListener(this::onRefresh);
 
-        ListView articleListView = view.findViewById(R.id.lv_article_list);
+        mArticleListView = view.findViewById(R.id.lv_article_list);
         mArticleListViewAdapter = new CommonAdapter<Article>(getContext(), mArticleList, R.layout.article_list_item) {
             @Override
             public void onPostBindViewHolder(ViewHolder viewHolder, Article article) {
@@ -64,8 +79,30 @@ public class HomeFragment extends Fragment {
                 Picasso.get().load(article.getImageUrl()).into((ImageView) viewHolder.getView(R.id.iv_item_image));
             }
         };
-        articleListView.setAdapter(mArticleListViewAdapter);
-        articleListView.addHeaderView(getLayoutInflater().inflate(R.layout.article_list_header, articleListView, false));
+        mArticleListView.setAdapter(mArticleListViewAdapter);
+
+        mArticleListView.setOnItemClickListener((parent, v, position, id) -> {
+            if (v == mArticleListHeaderView) {
+                EventBus.getDefault().post(new SearchCompletedEvent(mDailyWord.getWord(), Collections.singletonList(mDailyWord)));
+            }
+        });
+
+        initDailyWord();
+    }
+
+    private void initDailyWord() {
+        if (!DictHelper.hasDict()) {
+            return;
+        }
+
+        List<DictEntry> entries = DBox.of(DictEntry.class).findAll().results().all(); // this is bad
+        Random random = new Random(Calendar.getInstance().get(Calendar.DAY_OF_YEAR));
+        mDailyWord = entries.get(random.nextInt(entries.size()));
+
+        ArticleListHeaderBinding binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.article_list_header, mArticleListView, false);
+        binding.setEntry(mDailyWord);
+        mArticleListHeaderView = binding.getRoot();
+        mArticleListView.addHeaderView(mArticleListHeaderView);
     }
 
     @Override

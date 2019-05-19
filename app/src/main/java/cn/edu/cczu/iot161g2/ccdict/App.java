@@ -3,7 +3,7 @@ package cn.edu.cczu.iot161g2.ccdict;
 import android.app.Application;
 
 import cn.edu.cczu.iot161g2.ccdict.beans.DictEntry;
-import cn.edu.cczu.iot161g2.ccdict.utils.DictImporter;
+import cn.edu.cczu.iot161g2.ccdict.utils.DictHelper;
 import im.r_c.android.dbox.DBox;
 import im.r_c.android.fusioncache.FusionCache;
 import io.reactivex.Observable;
@@ -26,10 +26,10 @@ public class App extends Application {
         sFusionCache = new FusionCache(this, 4 * 1024 * 1024, 50 * 1024 * 1024);
         DBox.init(this, "main.db");
 
-        if (!DictImporter.hasDict()) {
+        if (!DictHelper.hasDict()) {
             Observable.just("dict.json")
                     .doOnNext(filename -> DBox.of(DictEntry.class).drop())
-                    .map(filename -> DictImporter.importFromAssets(this, filename))
+                    .map(filename -> DictHelper.importFromAssets(this, filename))
                     .subscribeOn(Schedulers.io())
                     .subscribe();
         }

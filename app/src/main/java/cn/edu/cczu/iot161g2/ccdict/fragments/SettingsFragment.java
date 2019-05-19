@@ -17,7 +17,7 @@ import java.util.Arrays;
 
 import cn.edu.cczu.iot161g2.ccdict.R;
 import cn.edu.cczu.iot161g2.ccdict.beans.DictEntry;
-import cn.edu.cczu.iot161g2.ccdict.utils.DictImporter;
+import cn.edu.cczu.iot161g2.ccdict.utils.DictHelper;
 import im.r_c.android.dbox.DBox;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -80,14 +80,14 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             if (which == DialogInterface.BUTTON_POSITIVE) {
                 Observable.just(uri)
                         .doOnNext(u -> DBox.of(DictEntry.class).drop())
-                        .map(u -> DictImporter.importFromChosenFile(getContext(), u))
+                        .map(u -> DictHelper.importFromChosenFile(getContext(), u))
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(count -> Toast.makeText(getContext(), count >= 0 ? "成功导入" + count + "条记录" : "导入失败", Toast.LENGTH_SHORT).show());
             }
         };
 
-        if (DictImporter.hasDict()) {
+        if (DictHelper.hasDict()) {
             // 询问是否覆盖
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
             builder.setMessage("确认覆盖当前词典?")

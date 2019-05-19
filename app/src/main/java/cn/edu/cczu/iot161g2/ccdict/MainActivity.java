@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -24,6 +25,7 @@ import cn.edu.cczu.iot161g2.ccdict.fragments.AppBarSearchFragment;
 import cn.edu.cczu.iot161g2.ccdict.fragments.AppBarTitleFragment;
 import cn.edu.cczu.iot161g2.ccdict.fragments.HomeFragment;
 import cn.edu.cczu.iot161g2.ccdict.fragments.SearchHistoryFragment;
+import cn.edu.cczu.iot161g2.ccdict.fragments.SearchResultFragment;
 import cn.edu.cczu.iot161g2.ccdict.fragments.SettingsFragment;
 import im.r_c.android.dbox.DBox;
 import im.r_c.android.dbox.DBoxCondition;
@@ -56,18 +58,29 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
-    private void replaceMainFragment(Fragment fragment) {
-        getSupportFragmentManager()
+    private void replaceMainFragment(Fragment fragment, String tag, boolean addToBackStack) {
+        FragmentTransaction transaction = getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fl_main_container, fragment)
-                .commit();
+                .replace(R.id.fl_main_container, fragment, tag);
+        if (addToBackStack) {
+            transaction.addToBackStack(null);
+        }
+        transaction.commit();
+    }
+
+    private void replaceMainFragment(Fragment fragment, String tag) {
+        replaceMainFragment(fragment, tag, false);
     }
 
     private boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.navigation_dict:
                 replaceAppBarFragment(AppBarSearchFragment.newInstance());
-                replaceMainFragment(HomeFragment.newInstance()); // TODO: fragment 需要缓存 (使用 tag)
+                Fragment fragment = getSupportFragmentManager().findFragmentByTag("home");
+                if (fragment == null) {
+                    fragment = HomeFragment.newInstance();
+                }
+                replaceMainFragment(fragment, "home");
                 return true;
             case R.id.navigation_trans:
                 replaceAppBarFragment(AppBarTitleFragment.newInstance(getString(R.string.title_trans)));
@@ -77,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.navigation_settings:
                 replaceAppBarFragment(AppBarTitleFragment.newInstance(getString(R.string.title_settings)));
-                replaceMainFragment(SettingsFragment.newInstance());
+                replaceMainFragment(SettingsFragment.newInstance(), null);
                 return true;
         }
         return false;
@@ -98,11 +111,7 @@ public class MainActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onSearchStateChanged(SearchStateChangedEvent event) {
         if (event.enabled) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fl_main_container, SearchHistoryFragment.newInstance())
-                    .addToBackStack(null)
-                    .commit();
+            replaceMainFragment(SearchHistoryFragment.newInstance(), null, true);
         } else {
             getSupportFragmentManager()
                     .popBackStack();
@@ -130,6 +139,10 @@ public class MainActivity extends AppCompatActivity {
                 .subscribeOn(Schedulers.io())
                 .subscribe();
 
-
+        event.results.sort((a, b) -> a.getWord().length() - b.getWord().length());
+        replaceMainFragment(
+                SearchResultFragment.newInstance(event.keyword, event.results.size() > 0 ? event.results.get(0) : null),
+                null, true
+        );
     }
 }

@@ -95,15 +95,11 @@ public class AppBarSearchFragment extends Fragment implements MaterialSearchBar.
         Observable.just(event.keyword)
                 .map(kw -> DBox.of(DictEntry.class)
                         .find(new DBoxCondition()
-                                .contains(COLUMN_NAME_WORD, kw)
+                                .startsWith(COLUMN_NAME_WORD, kw)
                                 .or()
                                 .contains(COLUMN_NAME_EXPLANATION, kw))
                         .results()
                         .all())
-//                .map(kw -> Arrays.asList( // TODO: just test
-//                        new DictEntry("test", "测试"),
-//                        new DictEntry("hello", "你好")
-//                ))
                 .subscribeOn(Schedulers.io())
                 .subscribe(dictEntries -> EventBus.getDefault().post(new SearchCompletedEvent(event.keyword, dictEntries)),
                         throwable -> EventBus.getDefault().post(new SearchCompletedEvent(event.keyword, null)));

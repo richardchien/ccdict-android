@@ -1,13 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="20dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
+    <data>
+
+        <variable
+            name="entry"
+            type="cn.edu.cczu.iot161g2.ccdict.beans.DictEntry" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/app_name"
-        android:src="@mipmap/ic_launcher" />
-</LinearLayout>
+        android:orientation="vertical"
+        android:padding="@dimen/daily_word_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_daily_word" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@{entry.word}"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/daily_word_word_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_horizontal"
+                android:text="@{entry.explanation}"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/search_result_explanation_size" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>
