@@ -7,7 +7,6 @@ import android.net.Uri;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -44,13 +43,14 @@ public class DictHelper {
     }
 
     private static long importFromInputStream(InputStream inputStream) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        try {
+        try (InputStreamReader reader = new InputStreamReader(inputStream)) {
             return Arrays.stream(new Gson().fromJson(reader, DictEntry[].class))
                     .map(entry -> DBox.of(DictEntry.class).save(entry))
                     .filter(Boolean::booleanValue)
                     .count();
         } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return -1;

@@ -18,10 +18,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
-import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -136,10 +135,14 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         File dest = new File(downloadDir, "exported_dict.json");
         Observable.just(dest)
                 .map(file -> {
-                    try (FileOutputStream fis = new FileOutputStream(file)) {
+                    try (FileOutputStream fis = new FileOutputStream(file);
+                         OutputStreamWriter writer = new OutputStreamWriter(fis)) {
                         List<DictEntry> entryList = DBox.of(DictEntry.class).findAll().results().all();
-                        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fis));
-                        bw.write(new Gson().toJson(entryList));
+                        new GsonBuilder()
+                                .setPrettyPrinting()
+                                .disableHtmlEscaping()
+                                .create()
+                                .toJson(entryList, writer);
                         return true;
                     } catch (IOException e) { // 打开文件可能出错
                         e.printStackTrace();
